@@ -1,0 +1,61 @@
+//
+//  CollectionsViewController.swift
+//  Collections
+//
+//  Created by Beavean on 17.11.2022.
+//
+
+import UIKit
+
+final class CollectionsViewController: UIViewController {
+    
+    //MARK: - Collections options
+    
+    private enum Collections: String, CaseIterable {
+        case array
+        case set
+        case dictionary
+    }
+    
+    //MARK: - IBOutlets
+    
+    @IBOutlet private weak var collectionsTableView: UITableView!
+    
+    //MARK: - Lifecycle
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.ArrayViewSegueIdentifier {
+            guard let vc = segue.destination as? ArrayViewController else { return }
+            vc.navigationItem.largeTitleDisplayMode = .never
+            vc.navigationItem.title = "\(Collections.allCases[0].rawValue.capitalized): \(Int.random(in: 0...999))"
+        }
+    }
+}
+
+//MARK: - UITableViewDelegate
+
+extension CollectionsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: Constants.ArrayViewSegueIdentifier, sender: nil)
+        default:
+            break
+        }
+    }
+}
+
+//MARK: - UITableViewDataSource
+
+extension CollectionsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        Collections.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = collectionsTableView.dequeueReusableCell(withIdentifier: Constants.collectionsCellReuseID, for: indexPath)
+        cell.textLabel?.text = Collections.allCases[indexPath.row].rawValue.capitalized
+        return cell
+    }
+}
