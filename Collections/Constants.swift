@@ -9,7 +9,8 @@ import Foundation
 
 struct Constants {
     
-    static let ArrayViewSegueIdentifier = "ArrayView"
+    static let arrayViewSegueIdentifier = "ArrayView"
+    static let setViewSegueIdentifier = "SetView"
     
     static let amountOfElementsToCreate = 10_000_000
     static let amountOfElementsToOperate = 1000

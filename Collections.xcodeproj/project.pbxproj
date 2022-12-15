@@ -10,6 +10,9 @@
 		08213776292A5E0100AE4DEA /* ArrayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08213775292A5E0100AE4DEA /* ArrayViewModel.swift */; };
 		0822BED02927DE02008FF7C4 /* Array.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0822BECF2927DE02008FF7C4 /* Array.storyboard */; };
 		0822BED22927DE1B008FF7C4 /* ArrayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822BED12927DE1B008FF7C4 /* ArrayViewController.swift */; };
+		08254FC62948E4840081F190 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08254FC52948E4840081F190 /* SetViewController.swift */; };
+		08254FC82948E4AF0081F190 /* Set.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08254FC72948E4AF0081F190 /* Set.storyboard */; };
+		08254FCA2948E4C60081F190 /* SetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08254FC92948E4C60081F190 /* SetViewModel.swift */; };
 		085904F42927ED3B001E2A49 /* ArrayOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085904F22927ED3B001E2A49 /* ArrayOperationCell.swift */; };
 		085904F52927ED3B001E2A49 /* ArrayOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085904F32927ED3B001E2A49 /* ArrayOperationCell.xib */; };
 		08ABAE71292692BA00CA16EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABAE70292692BA00CA16EC /* AppDelegate.swift */; };
@@ -26,6 +29,9 @@
 		08213775292A5E0100AE4DEA /* ArrayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewModel.swift; sourceTree = "<group>"; };
 		0822BECF2927DE02008FF7C4 /* Array.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Array.storyboard; sourceTree = "<group>"; };
 		0822BED12927DE1B008FF7C4 /* ArrayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewController.swift; sourceTree = "<group>"; };
+		08254FC52948E4840081F190 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		08254FC72948E4AF0081F190 /* Set.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Set.storyboard; sourceTree = "<group>"; };
+		08254FC92948E4C60081F190 /* SetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewModel.swift; sourceTree = "<group>"; };
 		085904F22927ED3B001E2A49 /* ArrayOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayOperationCell.swift; sourceTree = "<group>"; };
 		085904F32927ED3B001E2A49 /* ArrayOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrayOperationCell.xib; sourceTree = "<group>"; };
 		08ABAE6D292692BA00CA16EC /* Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collections.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +78,16 @@
 			path = ArrayScreen;
 			sourceTree = "<group>";
 		};
+		08254FC42948E3FA0081F190 /* SetScreen */ = {
+			isa = PBXGroup;
+			children = (
+				08254FC52948E4840081F190 /* SetViewController.swift */,
+				08254FC92948E4C60081F190 /* SetViewModel.swift */,
+				08254FC72948E4AF0081F190 /* Set.storyboard */,
+			);
+			path = SetScreen;
+			sourceTree = "<group>";
+		};
 		085904F72927ED4C001E2A49 /* OperationCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +120,7 @@
 				08ABAE72292692BA00CA16EC /* SceneDelegate.swift */,
 				0822BECE2927DDDC008FF7C4 /* CollectionsScreen */,
 				0822BED32927DE74008FF7C4 /* ArrayScreen */,
+				08254FC42948E3FA0081F190 /* SetScreen */,
 				08ABAE862926963F00CA16EC /* Constants.swift */,
 				08ABAE79292692BC00CA16EC /* Assets.xcassets */,
 				08ABAE7B292692BC00CA16EC /* LaunchScreen.storyboard */,
@@ -171,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08ABAE7D292692BC00CA16EC /* LaunchScreen.storyboard in Resources */,
+				08254FC82948E4AF0081F190 /* Set.storyboard in Resources */,
 				08ABAE7A292692BC00CA16EC /* Assets.xcassets in Resources */,
 				08ABAE78292692BA00CA16EC /* Collections.storyboard in Resources */,
 				0822BED02927DE02008FF7C4 /* Array.storyboard in Resources */,
@@ -186,9 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0822BED22927DE1B008FF7C4 /* ArrayViewController.swift in Sources */,
+				08254FC62948E4840081F190 /* SetViewController.swift in Sources */,
 				08ABAE872926963F00CA16EC /* Constants.swift in Sources */,
 				08213776292A5E0100AE4DEA /* ArrayViewModel.swift in Sources */,
 				08ABAE852926962E00CA16EC /* CollectionsViewController.swift in Sources */,
+				08254FCA2948E4C60081F190 /* SetViewModel.swift in Sources */,
 				085904F42927ED3B001E2A49 /* ArrayOperationCell.swift in Sources */,
 				08ABAE71292692BA00CA16EC /* AppDelegate.swift in Sources */,
 				08ABAE73292692BA00CA16EC /* SceneDelegate.swift in Sources */,

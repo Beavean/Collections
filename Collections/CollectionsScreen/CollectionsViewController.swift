@@ -13,9 +13,13 @@ final class CollectionsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier{
-        case Constants.ArrayViewSegueIdentifier:
+        case Constants.arrayViewSegueIdentifier:
             guard let vc = segue.destination as? ArrayViewController else { return }
             vc.navigationItem.title = "Array: \(Int.random(in: 0...999))"
+        case Constants.setViewSegueIdentifier:
+            guard let vc = segue.destination as? SetViewController else { return }
+            vc.navigationItem.largeTitleDisplayMode = .never
+            vc.navigationItem.title = "Set: \(Int.random(in: 0...999))"
         default:
             break
         }
@@ -26,7 +30,7 @@ final class CollectionsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-            fallthrough
+            performSegue(withIdentifier: Constants.setViewSegueIdentifier, sender: nil)
         case 2:
             fallthrough
         default:

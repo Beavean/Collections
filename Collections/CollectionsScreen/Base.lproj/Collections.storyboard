@@ -16,7 +16,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE2-Cn-Nt4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="3"/>
+            <point key="canvasLocation" x="1677" y="-155"/>
+        </scene>
+        <!--Set-->
+        <scene sceneID="pVV-RP-kxH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Set" id="Xb3-Md-J1j" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3UE-VR-U8f"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVp-Pq-lgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1678" y="172"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F7h-1F-PMr">
@@ -86,6 +96,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Collections" largeTitleDisplayMode="always" id="k4L-lf-Gmp"/>
+                    <connections>
+                        <segue destination="Xb3-Md-J1j" kind="show" identifier="SetView" id="1Zp-Im-avK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvF-J9-L4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
