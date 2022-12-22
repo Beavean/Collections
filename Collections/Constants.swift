@@ -12,9 +12,11 @@ struct Constants {
     static let arrayViewSegueIdentifier = "ArrayView"
     static let setViewSegueIdentifier = "SetView"
     
+    static let dictionaryStoryboardName = "Dictionary"
+    static let dictionaryViewControllerIdentifier = "DictionaryViewController"
+    
     static let amountOfElementsToCreate = 10_000_000
     static let amountOfElementsToOperate = 1000
     
-    static let collectionsCellReuseID = "CollectionsCell"
-    static let arrayOperationCellReuseID = String(describing: ArrayOperationCell.self)
+    static let operationCellReuseID = String(describing: OperationCell.self)
 }

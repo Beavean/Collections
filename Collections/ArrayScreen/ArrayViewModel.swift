@@ -174,29 +174,20 @@ final class ArrayViewModel {
         case .createIntArray:
             titlePrefix = "Array creation"
             mainCellTitle = titlePrefix + " time: " + convertedTimeInterval
-        case .insertElementsAtTheBeginningOneByOne:
-            fallthrough
-        case .insertElementsAtTheBeginningAtOnce:
-            fallthrough
-        case .insertElementsInTheMiddleOneByOne:
-            fallthrough
-        case .insertElementsInTheMiddleAtOnce:
+        case .insertElementsAtTheBeginningOneByOne,
+                .insertElementsAtTheBeginningAtOnce,
+                .insertElementsInTheMiddleOneByOne,
+                .insertElementsInTheMiddleAtOnce:
             titlePrefix = "Insertion"
-        case .appendElementsAtTheEndOneByOne:
-            fallthrough
-        case .appendElementsAtTheEndAtOnce:
+        case .appendElementsAtTheEndOneByOne,
+                .appendElementsAtTheEndAtOnce:
             titlePrefix = "Appending"
-        case .removeElementsAtTheBeginningOneByOne:
-            fallthrough
-        case .removeElementsAtTheBeginningAtOnce:
-            fallthrough
-        case .removeElementsInTheMiddleOneByOne:
-            fallthrough
-        case .removeElementsInTheMiddleAtOnce:
-            fallthrough
-        case .removeElementsAtTheEndOneByOne:
-            fallthrough
-        case .removeElementsAtTheEndAtOnce:
+        case .removeElementsAtTheBeginningOneByOne,
+                .removeElementsAtTheBeginningAtOnce,
+                .removeElementsInTheMiddleOneByOne,
+                .removeElementsInTheMiddleAtOnce,
+                .removeElementsAtTheEndOneByOne,
+                .removeElementsAtTheEndAtOnce:
             titlePrefix = "Removing"
         }
         return titlePrefix + " time: " + convertedTimeInterval

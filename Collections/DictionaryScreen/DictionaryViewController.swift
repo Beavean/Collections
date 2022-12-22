@@ -1,63 +1,69 @@
 //
-//  ArrayViewController.swift
+//  DictionaryViewController.swift
 //  Collections
 //
-//  Created by Beavean on 18.11.2022.
+//  Created by Beavean on 15.12.2022.
 //
 
 import UIKit
 
-final class ArrayViewController: UIViewController {
+final class DictionaryViewController: UIViewController {
     
     //MARK: - IBOutlets
     
     @IBOutlet private weak var operationsCollectionView: UICollectionView!
+    @IBOutlet private weak var operationsActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var operationsView: UIView!
     
     //MARK: - Properties
     
-    private let viewModel = ArrayViewModel()
+    private let viewModel = DictionaryViewModel()
     private let sectionInset: UIEdgeInsets = .zero
     private let spacingBetweenCells: CGFloat = 0
     private let interitemSpacing: CGFloat = 0
-    private lazy var cellsAmount = ArrayOperation.allCases.count
+    private lazy var cellsAmount = DictionaryOperation.allCases.count
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupArrayFillCallback()
         operationsCollectionView.register(UINib(nibName: Constants.operationCellReuseID, bundle: nil), forCellWithReuseIdentifier: Constants.operationCellReuseID)
+        generateCollections()
     }
     
-    private func setupArrayFillCallback() {
-        viewModel.onArrayCreate = {
-            DispatchQueue.main.async {
-                self.operationsCollectionView.reloadData()
+    private func generateCollections() {
+        guard !viewModel.hasData else { return }
+        operationsView.isHidden = true
+        operationsActivityIndicator.startAnimating()
+        viewModel.generateCollections {
+            DispatchQueue.main.async { [self] in
+                operationsView.isHidden = false
+                operationsActivityIndicator.stopAnimating()
             }
         }
     }
 }
 
-extension ArrayViewController: UICollectionViewDataSource {
+extension DictionaryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.readyForOperations ? cellsAmount : 1
+        cellsAmount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.operationCellReuseID, for: indexPath) as? OperationCell else { return UICollectionViewCell() }
-        cell.configure(title: viewModel.createTitle(forCellAt: indexPath), hasEndedOperation: indexPath.row == 0 ? viewModel.readyForOperations : false)
+        cell.configure(title: viewModel.createTitle(forCellAt: indexPath), hasEndedOperation: false)
         return cell
     }
 }
 
-extension ArrayViewController: UICollectionViewDelegateFlowLayout {
+extension DictionaryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfItemsPerRow: CGFloat = indexPath.item == 0 ? 1 : 2
-        let numberOfRows = CGFloat(cellsAmount % 2 == 1 ? (cellsAmount + 1) / 2 : cellsAmount / 2)
+        let numberOfItemsPerRow: CGFloat = 2
+        let numberOfRows = CGFloat(cellsAmount / 2)
         let width = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
-        let height = collectionView.safeAreaLayoutGuide.layoutFrame.size.height
+        let height = collectionView.safeAreaLayoutGuide.layoutFrame.size.height / 2
         let itemWidth = floor(width / numberOfItemsPerRow)
         let ItemHeight = height / numberOfRows
         return CGSize(width: itemWidth, height: ItemHeight)
@@ -76,15 +82,16 @@ extension ArrayViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ArrayViewController: UICollectionViewDelegate {
+extension DictionaryViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? OperationCell,
               !cell.hasEndedOperation
         else { return }
         cell.startOperation()
-        self.viewModel.performOperation(ofType: ArrayOperation.allCases[indexPath.row]) { cellTitle in
+        self.viewModel.performOperation(ofType: DictionaryOperation.allCases[indexPath.row]) { cellTitle in
             cell.configure(title: cellTitle, hasEndedOperation: true)
         }
     }
 }
+
