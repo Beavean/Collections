@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ArrayOperationCell: UICollectionViewCell {
+final class OperationCell: UICollectionViewCell {
     
     //MARK: - IBOutlets
     
@@ -23,6 +23,7 @@ final class ArrayOperationCell: UICollectionViewCell {
     func configure(title: String, hasEndedOperation: Bool) {
         self.hasEndedOperation = hasEndedOperation
         operationLabel.isHidden = false
+        operationLabel.adjustsFontSizeToFitWidth = true
         operationActivityIndicator.stopAnimating()
         layer.borderWidth = 1
         operationLabel.textColor = hasEndedOperation ? .black : .systemBlue

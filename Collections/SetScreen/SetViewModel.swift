@@ -13,16 +13,16 @@ final class SetViewModel {
     
     func formatInput(fromString string: String?) -> String? {
         guard let string else { return nil }
-        var resultString = String()
+        var resultString = ""
         for character in string {
             let characterAsString = String(character)
-            resultString += characterAsString.range(of: formatRegexRange, options: .regularExpression) != nil ? characterAsString : String()
+            resultString += characterAsString.range(of: formatRegexRange, options: .regularExpression) != nil ? characterAsString : ""
         }
         return resultString
     }
     
     func getAllMatchingLetters(firstString: String, secondString: String) -> String {
-        var result = String()
+        var result = ""
         let firstSet = Set(firstString)
         let secondSet = Set(secondString)
         let matchingElements = firstSet.intersection(secondSet)
@@ -33,7 +33,7 @@ final class SetViewModel {
     }
     
     func getAllNotMatchingCharacters(firstString: String, secondString: String) -> String {
-        var result = String()
+        var result = ""
         let firstSet = Set(firstString)
         let secondSet = Set(secondString)
         let difference = firstSet.symmetricDifference(secondSet)
@@ -47,7 +47,7 @@ final class SetViewModel {
     }
     
     func getAllUniqueCharacters(firstString: String, secondString: String) -> String {
-        var result = String()
+        var result = ""
         let firstSet = Set(firstString)
         let secondSet = Set(secondString)
         let uniqueCharacters = firstSet.subtracting(secondSet)

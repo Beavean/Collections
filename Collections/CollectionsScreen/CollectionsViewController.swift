@@ -32,7 +32,11 @@ final class CollectionsViewController: UITableViewController {
         case 1:
             performSegue(withIdentifier: Constants.setViewSegueIdentifier, sender: nil)
         case 2:
-            fallthrough
+            let storyboard = UIStoryboard(name: Constants.dictionaryStoryboardName, bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: Constants.dictionaryViewControllerIdentifier)
+            vc.navigationItem.largeTitleDisplayMode = .never
+            vc.navigationItem.title = "Dictionary: \(Int.random(in: 0...999))"
+            navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
