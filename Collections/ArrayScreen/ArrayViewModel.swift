@@ -17,7 +17,7 @@ final class ArrayViewModel {
             onArrayCreate?()
         }
     }
-    private var mainArray = [Int]()
+    private(set) var mainArray = [Int]()
     private let operationalArray = Array(0...Constants.amountOfElementsToOperate - 1)
     private let processingQueue = DispatchQueue(label: "background.Collections", qos: .userInitiated)
     private lazy var mainCellTitle = "Create Int array with \(Constants.amountOfElementsToCreate) elements"

@@ -28,6 +28,7 @@ final class DictionaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         operationsCollectionView.register(UINib(nibName: Constants.operationCellReuseID, bundle: nil), forCellWithReuseIdentifier: Constants.operationCellReuseID)
+        operationsCollectionView.accessibilityIdentifier = "DictionaryCollectionView"
         generateCollections()
     }
     
