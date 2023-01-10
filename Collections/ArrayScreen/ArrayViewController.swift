@@ -27,6 +27,7 @@ final class ArrayViewController: UIViewController {
         super.viewDidLoad()
         setupArrayFillCallback()
         operationsCollectionView.register(UINib(nibName: Constants.operationCellReuseID, bundle: nil), forCellWithReuseIdentifier: Constants.operationCellReuseID)
+        operationsCollectionView.accessibilityIdentifier = "ArrayCollectionView"
     }
     
     private func setupArrayFillCallback() {
